@@ -10,15 +10,20 @@ class BaseModel {
     }
 
 	private function create_connection() { //Creates DB connection
+	
+		$server = "localhost";
+		$user = "root";
+		$pwd = "";
+		$db = "news";
 		
-		$conn=mysql_connect("localhost", "root", "", false, MYSQL_CLIENT_INTERACTIVE);
+		$conn=mysql_connect($server, $user, $pwd, false, MYSQL_CLIENT_INTERACTIVE);
 
 		if (!$conn) {
 			echo "DB Connection not established";
 			exit;
 		}
 
-		if (!mysql_select_db("news")) {
+		if (!mysql_select_db($db)) {
 			echo "DB not selected";
 			exit;
 		}
